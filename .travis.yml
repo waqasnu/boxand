@@ -1,9 +1,22 @@
 language: android
+script: ./gradlew build assembleRelease
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - platform-tools
-    # - tools
-    # The SDK version used to compile your project
-    - android-23
+  - build-tools-20.0.0
+  - android-19
+
+deploy:
+  - provider: releases
+    api_key:241f3444833c01a3e8de583ebeadeff37107c05c
+    file: app/build/outputs/apk/app-release.apk
+    on:
+      repo: Zzivi/Sodexo
+      tags: true
+
+notifications:
+  email:
+    recipients:
+    - waqascs@gmail.com
+    - waqascs@gmail.com
+    on_success: always
+    on_failure: always
