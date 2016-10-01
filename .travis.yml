@@ -1,5 +1,4 @@
 language: android
-script: ./gradlew build assembleRelease
 android:
   components:
   - build-tools-20.0.0
